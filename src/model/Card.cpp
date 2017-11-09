@@ -12,15 +12,15 @@ Card::Card(int value, int suite, int color) {
 Card::~Card() {
 }
 
-int Card::getValue() {
+const int Card::getValue() {
 	return value;
 }
 
-int Card::getSuite() {
+const int Card::getSuite() {
 	return suite;
 }
 
-int Card::getColor() {
+const int Card::getColor() {
 	return color;
 }
 
@@ -28,7 +28,7 @@ void Card::setColor(int color) {
 	this->color = color;
 }
 
-bool Card::isVisible() {
+const bool Card::isVisible() {
 	return this->visibility;
 }
 
@@ -36,19 +36,19 @@ void Card::setVisibility(bool visibility) {
 	this->visibility = visibility;
 }
 
-bool Card::isPreviousValue(Card card) {
+const bool Card::isPreviousValue(Card card) {
 	return compareValue(card.getValue()) == 1;
 }
 
-bool Card::isFollowingValue(Card card) {
+const bool Card::isFollowingValue(Card card) {
 	return compareValue(card.getValue()) == -1;
 }
 
-bool Card::isEqualSuite(Card card) {
+const bool Card::isEqualSuite(Card card) {
 	return this->suite == card.getSuite();
 }
 
-bool Card::isEqualColor(Card card) {
+const bool Card::isEqualColor(Card card) {
 	return this->color == card.getColor();
 }
 

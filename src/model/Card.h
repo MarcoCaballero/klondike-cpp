@@ -8,16 +8,16 @@ class Card {
 public:
 	Card(int value, int suite, int color);
 	virtual ~Card();
-	int getValue();
-	int getSuite();
-	int getColor();
+	const int getValue();
+	const int getSuite();
+	const int getColor();
 	void setColor(int color);
-	bool isVisible();
+	const bool isVisible();
 	void setVisibility(bool visibility);
-	bool isPreviousValue(Card card);
-	bool isFollowingValue(Card card);
-	bool isEqualSuite(Card card);
-	bool isEqualColor(Card card);
+	const bool isPreviousValue(Card card);
+	const bool isFollowingValue(Card card);
+	const bool isEqualSuite(Card card);
+	const bool isEqualColor(Card card);
 
 private:
 	int value;

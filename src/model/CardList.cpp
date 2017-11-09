@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <model/CardList.h>
 
 namespace model {
@@ -5,22 +6,29 @@ namespace model {
 CardList::CardList() {
 }
 
-CardList::CardList(std::vector<Card>& cards) {
-	this->cards = cards;
-}
+CardList::CardList(std::vector<Card>& cards): cards(cards) { }
+
+CardList::CardList(const CardList& cardlist): cards(cardlist.cards){ }
 
 CardList::~CardList() {
 }
 
+std::vector<Card>& CardList::getCards() {
+	return this->cards;
+}
+
 Card& CardList::getCard() {
+	assert(!isEmpty());
 	return cards.front();
 }
 
 Card& CardList::getCard(int pos) {
+	assert(!isEmpty());
 	return cards[pos];
 }
 
 const CardList CardList::getListOfCards(int length) {
+	assert(!isEmpty());
 	CardList sublist = CardList();
 	for (int i = 0; i < length; ++i) {
 		sublist.push(cards.at(i));
@@ -29,30 +37,35 @@ const CardList CardList::getListOfCards(int length) {
 }
 
 void CardList::setVisible(int pos, bool visibility) {
+	assert(!isEmpty());
+	assert(pos < size());
 	getCard(pos).setVisibility(visibility);
 }
 
 void CardList::pop() {
+	assert(!isEmpty());
 	cards.erase(cards.begin());
 }
 
 void CardList::popList(int length) {
+	assert(!isEmpty());
+	assert(length <= size());
 	cards.erase(cards.begin(), cards.begin() + length);
 }
 
-int CardList::size() {
+const int CardList::size() {
 	return cards.size();
 }
 
-bool CardList::isEmpty() {
+const bool CardList::isEmpty(){
 	return cards.empty();
 }
 
-bool CardList::isFull(int maxLength) {
+const bool CardList::isFull(int maxLength) {
 	return size() == maxLength;
 }
 
-bool CardList::isFullOfInvisible() {
+const bool CardList::isFullOfInvisible(){
 	bool isFullOf = true;
 	for (auto &card : cards) // access by reference to avoid copying
 	{
