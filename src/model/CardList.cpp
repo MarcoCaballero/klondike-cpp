@@ -5,8 +5,8 @@ namespace model {
 CardList::CardList() {
 }
 
-CardList::CardList(std::vector<Card> cards) :
-		cards(cards) {
+CardList::CardList(std::vector<Card>& cards) {
+	this->cards = cards;
 }
 
 CardList::~CardList() {
@@ -20,7 +20,7 @@ Card& CardList::getCard(int pos) {
 	return cards[pos];
 }
 
-CardList CardList::getListOfCards(int length) {
+const CardList CardList::getListOfCards(int length) {
 	CardList sublist = CardList();
 	for (int i = 0; i < length; ++i) {
 		sublist.push(cards.at(i));
@@ -63,11 +63,11 @@ bool CardList::isFullOfInvisible() {
 	return isFullOf;
 }
 
-void CardList::push(Card card) {
-	cards.insert(cards.begin(), card);
+void CardList::push(const Card& card) {
+	this->cards.insert(cards.begin(), card);
 }
 
-void CardList::pushBack(Card card) {
-	cards.push_back(card);
+void CardList::pushBack(const Card& card) {
+	this->cards.push_back(card);
 }
 } /* namespace model */

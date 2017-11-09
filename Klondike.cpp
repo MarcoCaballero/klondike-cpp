@@ -17,24 +17,33 @@ int main(int argc, char *argv[]) {
 
 	Card card5 = Card(13, 4, 2); // 6, HEARTS, RED
 
-
 	card.setVisibility(true);
 
-	CardList cardlist;
-	cardlist.push(card);
-	cardlist.push(card2);
-	cardlist.push(card3);
-	cardlist.push(card4);
-
+	std::vector<Card> vector;
+	vector.push_back(card);
+	vector.push_back(card2);
+	vector.push_back(card3);
+	vector.push_back(card4);
+	CardList cardlist = CardList(vector);
 
 	cout << cardlist.isFullOfInvisible() << endl;
-
 
 	for (int i = 0; i <= cardlist.size(); ++i) {
 		cardlist.getCard(i).setVisibility(false);
 	}
 
 	cout << cardlist.isFullOfInvisible() << endl;
+
+	CardList subcardlist;
+	subcardlist = cardlist.getListOfCards(2);
+
+	cout << subcardlist.isFullOfInvisible() << endl;
+
+	for (int i = 0; i <= cardlist.size(); ++i) {
+		subcardlist.getCard(i).setVisibility(true);
+	}
+
+	cout << subcardlist.isFullOfInvisible() << endl;
 
 	system("PAUSE");
 	return EXIT_SUCCESS;

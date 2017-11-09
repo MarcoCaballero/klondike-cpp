@@ -9,11 +9,11 @@ namespace model {
 class CardList {
 public:
 	CardList();
-	CardList(std::vector<Card> cards);
+	CardList(std::vector<Card>& cards);
 	virtual ~CardList();
 	Card& getCard();
 	Card& getCard(int pos);
-	CardList getListOfCards(int length);
+	const CardList getListOfCards(int length);
 	void setVisible(int pos, bool visibility);
 	void pop();
 	void popList(int length);
@@ -21,8 +21,8 @@ public:
 	bool isEmpty();
 	bool isFull(int maxLength);
 	bool isFullOfInvisible();
-	void push(Card card);
-	void pushBack(Card card);
+	void push(const Card& card);
+	void pushBack(const Card& card);
 
 private:
 	std::vector<Card> cards;
