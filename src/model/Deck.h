@@ -1,16 +1,16 @@
-#ifndef SRC_MODEL_CARDDECK_H_
-#define SRC_MODEL_CARDDECK_H_
+#ifndef SRC_MODEL_DECK_H_
+#define SRC_MODEL_DECK_H_
 
 #include <model/CardList.h>
 #include <model/Card.h>
 
 namespace model {
 
-class CardDeck {
+class Deck {
 public:
-	CardDeck();
-	CardDeck (CardList cards);
-	virtual ~CardDeck();
+	Deck();
+	Deck (CardList cards);
+	virtual ~Deck();
 	Card& getCard();
 	void setVisible(int pos, bool visibility);
 	void pop();
@@ -28,4 +28,4 @@ private:
 
 } /* namespace model */
 
-#endif /* SRC_MODEL_CARDDECK_H_ */
+#endif /* SRC_MODEL_DECK_H_ */

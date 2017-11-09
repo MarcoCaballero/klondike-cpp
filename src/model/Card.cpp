@@ -2,9 +2,9 @@
 
 namespace model {
 
-Card::Card(int value, int suite, int color) {
+Card::Card(int value, int suit, int color) {
 	this->value = value;
-	this->suite = suite;
+	this->suit = suit;
 	this->color = color;
 	this->visibility = false;
 }
@@ -16,8 +16,8 @@ const int Card::getValue() {
 	return value;
 }
 
-const int Card::getSuite() {
-	return suite;
+const int Card::getSuit() {
+	return suit;
 }
 
 const int Card::getColor() {
@@ -36,20 +36,20 @@ void Card::setVisibility(bool visibility) {
 	this->visibility = visibility;
 }
 
-const bool Card::isPreviousValue(Card card) {
-	return compareValue(card.getValue()) == 1;
+const bool Card::isPreviousValue(int value) {
+	return compareValue(value) == 1;
 }
 
-const bool Card::isFollowingValue(Card card) {
-	return compareValue(card.getValue()) == -1;
+const bool Card::isFollowingValue(int value) {
+	return compareValue(value) == -1;
 }
 
-const bool Card::isEqualSuite(Card card) {
-	return this->suite == card.getSuite();
+const bool Card::isEqualSuit(int suit) {
+	return this->suit == suit;
 }
 
-const bool Card::isEqualColor(Card card) {
-	return this->color == card.getColor();
+const bool Card::isEqualColor(int color) {
+	return this->color == color;
 }
 
 int Card::compareValue(int value) {

@@ -6,23 +6,23 @@ namespace model {
 
 class Card {
 public:
-	Card(int value, int suite, int color);
+	Card(int value, int suit, int color);
 	virtual ~Card();
 	const int getValue();
-	const int getSuite();
+	const int getSuit();
 	const int getColor();
 	void setColor(int color);
 	const bool isVisible();
 	void setVisibility(bool visibility);
-	const bool isPreviousValue(Card card);
-	const bool isFollowingValue(Card card);
-	const bool isEqualSuite(Card card);
-	const bool isEqualColor(Card card);
+	const bool isPreviousValue(int value);
+	const bool isFollowingValue(int value);
+	const bool isEqualSuit(int suit);
+	const bool isEqualColor(int color);
 
 private:
 	int value;
 	int color;
-	int suite;
+	int suit;
 	bool visibility;
 
 	int compareValue(int value);
