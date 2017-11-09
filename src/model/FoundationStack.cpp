@@ -5,12 +5,15 @@ namespace model {
 
 FoundationStack::FoundationStack() :
 		Stack(), suit(0) {
+
 }
 
 FoundationStack::~FoundationStack() {
+
 }
 
 void FoundationStack::setVisible(int pos, bool visibility) {
+
 	cards.setVisible(pos, visibility);
 }
 
@@ -20,10 +23,12 @@ void FoundationStack::setSuit(int suit) {
 }
 
 const int FoundationStack::getSuit() {
+
 	return suit;
 }
 
 bool FoundationStack::isAllowedPush(Card card) {
+
 	if (isEmpty()) {
 		return true;
 	} else {
@@ -32,11 +37,13 @@ bool FoundationStack::isAllowedPush(Card card) {
 }
 
 const bool FoundationStack::checkSuit(int suit) {
+
 	return cards.getCard().isEqualSuit(suit);
 }
 
 const bool FoundationStack::checkValue(int value) {
+
 	return cards.getCard().isFollowingValue(value);
 }
 
-} /* namespace model */
+} // namespace model

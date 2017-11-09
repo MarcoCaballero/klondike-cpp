@@ -1,31 +1,42 @@
-#ifndef SRC_MODEL_DECK_H_
-#define SRC_MODEL_DECK_H_
+#ifndef MODEL_DECK_H
+#define MODEL_DECK_H
 
 #include <model/CardList.h>
-#include <model/Card.h>
 
 namespace model {
 
 class Deck {
 public:
 	Deck();
-	Deck (CardList cards);
+
+	Deck(CardList cards);
+
 	virtual ~Deck();
-	Card& getCard();
+
+	Card & getCard();
+
 	void setVisible(int pos, bool visibility);
+
 	void pop();
+
 	const int size();
+
 	const bool isEmpty();
+
 	const bool isFull(int maxLength);
+
 	const bool isFullOfInvisible();
-	void push(const Card& card);
+
+	void push(const Card & card);
+
 	void turnCard();
+
 	void shuffle();
 
 private:
 	CardList cards;
+
 };
 
-} /* namespace model */
-
-#endif /* SRC_MODEL_DECK_H_ */
+} // namespace model
+#endif

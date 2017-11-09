@@ -1,4 +1,5 @@
 #include <iostream>
+#include<vector>
 #include <model/CardList.h>
 #include <model/Card.h>
 #include <model/Deck.h>
