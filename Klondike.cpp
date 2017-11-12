@@ -1,5 +1,6 @@
 #include <iostream>
-#include<vector>
+#include <vector>
+#include <memory>
 #include <model/CardList.h>
 #include <model/Card.h>
 #include <model/Deck.h>
@@ -25,24 +26,25 @@ int main(int argc, char *argv[]) {
 	vector.push_back(card4);
 	CardList cardlist = CardList(vector);
 	Deck deck = Deck(cardlist);
-	FoundationStack foundation = FoundationStack();
+	std::shared_ptr<FoundationStack> foundation = std::make_shared<FoundationStack>();
 
 	cout << "[" << deck.getCard().getValue() << ":" << deck.getCard().getSuit()
 			<< ":" << deck.getCard().getColor() << "]" << deck.size() << endl;
 
 	deck.getCard().setVisibility(true);
 
+	foundation->setSuit(deck.getCard().getSuit());
 
-	foundation.setSuit(deck.getCard().getSuit());
-	foundation.push(deck.getCard());
+	foundation->push(deck.getCard());
 	deck.turnCard();
 
 	cout << "[" << deck.getCard().getValue() << ":" << deck.getCard().getSuit()
-				<< ":" << deck.getCard().getColor() << "]" << deck.size() << endl;
+			<< ":" << deck.getCard().getColor() << "]" << deck.size() << endl;
 
-	cout << "[" << foundation.getCard().getValue() << ":" << foundation.getCard().getSuit()
-				<< ":" << foundation.getCard().getColor() << "]" << foundation.size() << endl;
-
+	cout << "[" << foundation->getCard().getValue() << ":"
+			<< foundation->getCard().getSuit() << ":"
+			<< foundation->getCard().getColor() << "]" << foundation->size()
+			<< endl;
 
 //	system("PAUSE");
 	return EXIT_SUCCESS;

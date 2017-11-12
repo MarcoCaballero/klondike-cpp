@@ -1,7 +1,6 @@
 #ifndef MODEL_CARD_H
 #define MODEL_CARD_H
 
-
 namespace model {
 
 class Card {

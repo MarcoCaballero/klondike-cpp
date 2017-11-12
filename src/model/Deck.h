@@ -13,7 +13,7 @@ public:
 
 	virtual ~Deck();
 
-	Card & getCard();
+	Card& getCard();
 
 	void setVisible(int pos, bool visibility);
 
@@ -27,7 +27,7 @@ public:
 
 	const bool isFullOfInvisible();
 
-	void push(const Card & card);
+	void push(const Card& card);
 
 	void turnCard();
 

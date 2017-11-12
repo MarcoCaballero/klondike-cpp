@@ -13,16 +13,20 @@ public:
 
 	bool isAllowedPush(Card card);
 
+	bool isAllowedPushList(CardList cardlist);
+
 	void showAvailableCard();
 
 	const CardList getListOfCards(int length);
 
-	void pushList(CardList & cardlist);
+	void popList(int length);
 
 private:
 	bool checkColor(int color);
 
 	bool checkValue(int value);
+
+	bool checkList(CardList cardlist);
 
 };
 

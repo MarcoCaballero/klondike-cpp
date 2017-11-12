@@ -1,5 +1,5 @@
 
-#include "Card.h"
+#include <model/Card.h>
 
 namespace model {
 

@@ -1,32 +1,34 @@
 #ifndef MODEL_FOUNDATIONSTACK_H
 #define MODEL_FOUNDATIONSTACK_H
 
-
 #include <model/Stack.h>
 
 namespace model {
 
-class FoundationStack : public Stack {
-  public:
-    FoundationStack();
+class FoundationStack: public Stack {
+public:
+	FoundationStack();
 
-    virtual ~FoundationStack();
+	virtual ~FoundationStack();
 
-    void setVisible(int pos, bool visibility);
+	void setVisible(int pos, bool visibility);
 
-    void setSuit(int suit);
+	bool isAllowedPushList(CardList cardlist);
 
-    const int getSuit();
+	void setSuit(int suit);
 
-    bool isAllowedPush(Card card);
+	const int getSuit();
 
+	bool isAllowedPush(Card card);
 
-  private:
-    int suit;
+private:
+	int suit;
 
-    const bool checkSuit(int suit);
+	bool checkSuit(int suit);
 
-    const bool checkValue(int value);
+	bool checkValue(int value);
+
+	bool checkList(CardList cardlist);
 
 };
 

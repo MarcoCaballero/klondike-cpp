@@ -1,33 +1,41 @@
 #ifndef MODEL_STACK_H
 #define MODEL_STACK_H
 
+#include <memory>
 #include <model/CardList.h>
 
 namespace model {
 
 class Stack {
-  public:
-    Stack();
+public:
+	Stack();
 
-    virtual ~Stack();
+	virtual ~Stack();
 
-    Card & getCard();
+	Card& getCard();
 
-    void pop();
+	void pop();
 
-    const int size();
+	void switchONvisibility();
 
-    const bool isEmpty();
+	const int size();
 
-    const bool isFull();
+	const bool isEmpty();
 
-    void push(const Card & card);
+	const bool isFull();
 
-    virtual bool isAllowedPush(Card card) = 0;
+	const bool isFullOfInvisible();
 
+	void push(const Card& card);
 
-  protected:
-    CardList cards;
+	void pushList(CardList& cardlist);
+
+	virtual bool isAllowedPush(Card card) = 0;
+
+	virtual bool isAllowedPushList(CardList cardlist) = 0;
+
+protected:
+	CardList cards;
 
 };
 

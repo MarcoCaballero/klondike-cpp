@@ -36,14 +36,29 @@ bool FoundationStack::isAllowedPush(Card card) {
 	}
 }
 
-const bool FoundationStack::checkSuit(int suit) {
+bool FoundationStack::isAllowedPushList(CardList cardlist) {
+	if (isEmpty()) {
+		return cardlist.getCard().getValue() == 13; // Smell code , singleton
+	} else {
+		return isAllowedPushList(cardlist);
+	}
+}
+
+bool FoundationStack::checkSuit(int suit) {
 
 	return cards.getCard().isEqualSuit(suit);
 }
 
-const bool FoundationStack::checkValue(int value) {
+bool FoundationStack::checkValue(int value) {
 
 	return cards.getCard().isFollowingValue(value);
+}
+
+bool FoundationStack::checkList(CardList cardlist) {
+	Card topCard = cardlist.getCard();
+	cardlist.pop();
+	Card secondCard = cardlist.getCard();
+	return isAllowedPush(topCard) && checkSuit(secondCard.getColor());
 }
 
 } // namespace model

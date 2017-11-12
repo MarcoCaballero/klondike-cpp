@@ -1,8 +1,8 @@
 #ifndef MODEL_CARDLIST_H
 #define MODEL_CARDLIST_H
 
-#include <model/Card.h>
 #include <vector>
+#include <model/Card.h>
 
 namespace model {
 
@@ -12,13 +12,13 @@ public:
 
 	CardList(std::vector<Card>& cards);
 
-	CardList(const CardList & cardlist);
+	CardList(const CardList& cardlist);
 
 	virtual ~CardList();
 
-	Card & getCard();
+	Card& getCard();
 
-	Card & getCard(int pos);
+	Card& getCard(int pos);
 
 	std::vector<Card>& getCards();
 
@@ -38,9 +38,9 @@ public:
 
 	bool isFullOfInvisible();
 
-	void push(const Card & card);
+	void push(const Card& card);
 
-	void pushBack(const Card & card);
+	void pushBack(const Card& card);
 
 	void pushList(std::vector<Card>& cards);
 

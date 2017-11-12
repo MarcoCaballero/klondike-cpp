@@ -7,12 +7,12 @@ CardList::CardList(){
 
 }
 
-CardList::CardList(std::vector<Card> & cards) :
+CardList::CardList(std::vector<Card>& cards) :
 		cards(cards) {
 
 }
 
-CardList::CardList(const CardList & cardlist) :
+CardList::CardList(const CardList& cardlist) :
 		cards(cardlist.cards) {
 
 }
@@ -33,7 +33,7 @@ Card & CardList::getCard(int pos) {
 	return cards[pos];
 }
 
-std::vector<Card> & CardList::getCards() {
+std::vector<Card>& CardList::getCards() {
 
 	return this->cards;
 }
@@ -95,17 +95,17 @@ bool CardList::isFullOfInvisible() {
 	return isFullOf;
 }
 
-void CardList::push(const Card & card) {
+void CardList::push(const Card& card) {
 
 	this->cards.insert(cards.begin(), card);
 }
 
-void CardList::pushBack(const Card & card) {
+void CardList::pushBack(const Card& card) {
 
 	this->cards.push_back(card);
 }
 
-void CardList::pushList(std::vector<Card> & cards) {
+void CardList::pushList(std::vector<Card>& cards) {
 
 	cards.insert(this->cards.begin(), cards.begin(), cards.end());
 }

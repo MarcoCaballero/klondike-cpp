@@ -54,7 +54,6 @@ const bool Deck::isFullOfInvisible() {
 }
 
 void Deck::push(const Card & card) {
-
 	cards.pushBack(card);
 }
 
