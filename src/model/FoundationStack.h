@@ -13,8 +13,6 @@ public:
 
 	void setVisible(int pos, bool visibility);
 
-	bool isAllowedPushList(CardList cardlist);
-
 	void setSuit(int suit);
 
 	const int getSuit();

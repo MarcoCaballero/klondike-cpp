@@ -1,50 +1,38 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <model/CardList.h>
-#include <model/Card.h>
-#include <model/Deck.h>
-#include <model/FoundationStack.h>
+#include <model/Board.h>
+#include <utils/IOConsoleUtils.h>
 
 using namespace std;
 using namespace model;
 
 int main(int argc, char *argv[]) {
 
-	Card card = Card(1, 1, 1); // AS, CLUBS, BLACK
+	CardList cardlist;
 
-	Card card2 = Card(2, 1, 1); // DOS, SPADES, BLACK
+	for (int i = 1; i <= 13; ++i) {
+		for (int j = 1; j <= 4; ++j) {
+			Card card = Card(i, j, j % 2);
+			cardlist.pushBack(card);
+		}
+	}
 
-	Card card3 = Card(3, 1, 1); // 5, DIAMONDS, RED
+	std::shared_ptr<Board> board = std::make_shared<Board>(cardlist);
+	const std::map<std::string, std::shared_ptr<Deck>> map = board->getDecks();
 
-	Card card4 = Card(5, 1, 1); // 6, HEARTS, RED
+	std::shared_ptr<Deck> waste = board->getDecks().find("d2")->second;
+	IOConsoleUtils* utils = IOConsoleUtils::getInstance();
 
-	std::vector<Card> vector;
-	vector.push_back(card);
-	vector.push_back(card2);
-	vector.push_back(card3);
-	vector.push_back(card4);
-	CardList cardlist = CardList(vector);
-	Deck deck = Deck(cardlist);
-	std::shared_ptr<FoundationStack> foundation = std::make_shared<FoundationStack>();
+	do {
+		string str = "[" + to_string(board->getDeckCard().getValue()) + ":"
+				+ to_string(board->getDeckCard().getSuit()) + ":"
+				+ to_string(board->getDeckCard().getColor()) + "]"
+				+ to_string(board->getDeckCard().isVisible());
+		utils->writeln(str);
+		board->turnDeckCard();
 
-	cout << "[" << deck.getCard().getValue() << ":" << deck.getCard().getSuit()
-			<< ":" << deck.getCard().getColor() << "]" << deck.size() << endl;
-
-	deck.getCard().setVisibility(true);
-
-	foundation->setSuit(deck.getCard().getSuit());
-
-	foundation->push(deck.getCard());
-	deck.turnCard();
-
-	cout << "[" << deck.getCard().getValue() << ":" << deck.getCard().getSuit()
-			<< ":" << deck.getCard().getColor() << "]" << deck.size() << endl;
-
-	cout << "[" << foundation->getCard().getValue() << ":"
-			<< foundation->getCard().getSuit() << ":"
-			<< foundation->getCard().getColor() << "]" << foundation->size()
-			<< endl;
+	} while (!board->isDeckEmpty());
 
 //	system("PAUSE");
 	return EXIT_SUCCESS;

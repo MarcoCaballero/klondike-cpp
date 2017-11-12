@@ -17,21 +17,21 @@ bool TableauStack::isAllowedPush(Card card) {
 	return (checkColor(card.getColor()) && checkValue(card.getValue()));
 }
 
-bool TableauStack::isAllowedPushList(CardList cardlist) {
-	if (isEmpty()) {
-		return cardlist.getCard().getValue() == 13; // Smell code , singleton
-	} else {
-		return checkList(cardlist);
+void TableauStack::pushList(CardList& cardlist) {
+	if (this->isAllowedPushList(cardlist)) {
+		cards.pushList(cardlist.getCards());
 	}
 }
 
-void TableauStack::showAvailableCard() {
+bool TableauStack::isAllowedPushList(CardList cardlist) {
+	return checkList(cardlist);
+}
 
+void TableauStack::showAvailableCard() {
 	cards.setVisible(0, true);
 }
 
 const CardList TableauStack::getListOfCards(int length) {
-
 	return cards.getListOfCards(length);
 }
 
@@ -45,7 +45,6 @@ void TableauStack::popList(int length) {
 }
 
 bool TableauStack::checkColor(int color) {
-
 	if (isEmpty()) {
 		return true;
 	} else {
@@ -54,7 +53,6 @@ bool TableauStack::checkColor(int color) {
 }
 
 bool TableauStack::checkValue(int value) {
-
 	if (isEmpty()) {
 		return getCard().getValue() == 13; //SMELL CODE DE LA POLLA, singleton
 	} else {
@@ -63,10 +61,8 @@ bool TableauStack::checkValue(int value) {
 }
 
 bool TableauStack::checkList(CardList cardlist) {
-	Card topCard = cardlist.getCard();
-	cardlist.pop();
-	Card secondCard = cardlist.getCard();
-	return isAllowedPush(topCard) && !checkColor(secondCard.getColor());
+	Card lastCard = cardlist.getCards().back();
+	return isAllowedPush(lastCard) && lastCard.getValue() == 13; //SMELL CODE DE LA POLLA, singleton
 }
 
 }

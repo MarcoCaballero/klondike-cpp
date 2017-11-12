@@ -3,7 +3,7 @@
 
 namespace model {
 
-CardList::CardList(){
+CardList::CardList() {
 
 }
 
@@ -17,12 +17,11 @@ CardList::CardList(const CardList& cardlist) :
 
 }
 
-CardList::~CardList(){
+CardList::~CardList() {
 
 }
 
 Card & CardList::getCard() {
-
 	assert(!isEmpty());
 	return cards.front();
 }
@@ -39,11 +38,10 @@ std::vector<Card>& CardList::getCards() {
 }
 
 const CardList CardList::getListOfCards(int length) {
-
 	assert(!isEmpty());
 	CardList sublist = CardList();
 	for (int i = 0; i < length; ++i) {
-		sublist.push(cards.at(i));
+		sublist.push(getCard());
 	}
 	return sublist;
 }
@@ -109,6 +107,5 @@ void CardList::pushList(std::vector<Card>& cards) {
 
 	cards.insert(this->cards.begin(), cards.begin(), cards.end());
 }
-
 
 } // namespace model

@@ -9,7 +9,7 @@ Deck::Deck() {
 	this->cards = CardList();
 }
 
-Deck::Deck(CardList cards) {
+Deck::Deck(CardList& cards) {
 
 	this->cards = CardList(cards);
 }
@@ -23,9 +23,8 @@ Card & Deck::getCard() {
 	return cards.getCard();
 }
 
-void Deck::setVisible(int pos, bool visibility) {
-
-	cards.setVisible(pos, visibility);
+void Deck::setAvailableCardVisibility(bool visibility) {
+	getCard().setVisibility(visibility);
 }
 
 void Deck::pop() {
@@ -61,7 +60,9 @@ void Deck::turnCard() {
 
 	cards.getCard().setVisibility(false);
 	cards.pop();
-	cards.getCard().setVisibility(true);
+	if (!isEmpty()) {
+		cards.getCard().setVisibility(true);
+	}
 }
 
 void Deck::shuffle() {

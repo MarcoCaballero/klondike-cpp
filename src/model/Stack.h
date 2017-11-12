@@ -28,11 +28,7 @@ public:
 
 	void push(const Card& card);
 
-	void pushList(CardList& cardlist);
-
 	virtual bool isAllowedPush(Card card) = 0;
-
-	virtual bool isAllowedPushList(CardList cardlist) = 0;
 
 protected:
 	CardList cards;

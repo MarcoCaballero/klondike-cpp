@@ -11,6 +11,8 @@ public:
 
 	virtual ~TableauStack();
 
+	void pushList(CardList& cardlist);
+
 	bool isAllowedPush(Card card);
 
 	bool isAllowedPushList(CardList cardlist);

@@ -36,14 +36,6 @@ bool FoundationStack::isAllowedPush(Card card) {
 	}
 }
 
-bool FoundationStack::isAllowedPushList(CardList cardlist) {
-	if (isEmpty()) {
-		return cardlist.getCard().getValue() == 13; // Smell code , singleton
-	} else {
-		return isAllowedPushList(cardlist);
-	}
-}
-
 bool FoundationStack::checkSuit(int suit) {
 
 	return cards.getCard().isEqualSuit(suit);

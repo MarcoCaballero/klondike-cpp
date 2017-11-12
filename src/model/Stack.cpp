@@ -49,10 +49,4 @@ void Stack::push(const Card & card) {
 	}
 }
 
-void Stack::pushList(CardList& cardlist) {
-	if (this->isAllowedPushList(cardlist)) {
-		cards.pushList(cardlist.getCards());
-	}
-}
-
 } // namespace model

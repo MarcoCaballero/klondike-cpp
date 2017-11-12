@@ -9,13 +9,13 @@ class Deck {
 public:
 	Deck();
 
-	Deck(CardList cards);
+	Deck(CardList& cards);
 
 	virtual ~Deck();
 
 	Card& getCard();
 
-	void setVisible(int pos, bool visibility);
+	void setAvailableCardVisibility(bool visibility);
 
 	void pop();
 
