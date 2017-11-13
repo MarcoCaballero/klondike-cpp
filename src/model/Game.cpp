@@ -60,4 +60,8 @@ std::shared_ptr<Board> Game::getBoard() {
 	return board;
 }
 
+Card& Game::getDeckCard() {
+	return board->getDeckCard();
+}
+
 } /* namespace model */

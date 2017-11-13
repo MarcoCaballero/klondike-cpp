@@ -1,7 +1,6 @@
 #ifndef MODEL_STACK_H
 #define MODEL_STACK_H
 
-#include <memory>
 #include <model/CardList.h>
 
 namespace model {

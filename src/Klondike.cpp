@@ -1,20 +1,21 @@
 #include <iostream>
 #include <Klondike.h>
-#include <view/KlondikeView.h>
-
 
 Klondike::Klondike() {
-	logic = std::shared_ptr<controller::Logic>(new controller::Logic());
-	view = std::shared_ptr<view::KlondikeView>();
+	logic = new controller::Logic();
+	view = new view::KlondikeView();
 }
 
 Klondike::~Klondike() {
 }
 
 void Klondike::play() {
-	std::shared_ptr<controller::Controller> controller;
+	controller::Controller* controller;
 	do {
 		controller = logic->getController();
+		if (controller != NULL) {
+			view->interact(controller);
+		}
 	} while (controller != NULL);
 }
 

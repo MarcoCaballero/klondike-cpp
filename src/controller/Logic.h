@@ -14,10 +14,10 @@ class Logic {
 public:
 	Logic();
 	virtual ~Logic();
-	std::shared_ptr<Controller> getController();
+	Controller* getController();
 private:
-	std::shared_ptr<Game> game;
-	std::shared_ptr<StartController> startController;
+	Game* game;
+	StartController* startController;
 
 };
 

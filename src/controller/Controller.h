@@ -1,29 +1,28 @@
 #ifndef SRC_CONTROLLER_CONTROLLER_H_
 #define SRC_CONTROLLER_CONTROLLER_H_
 
-#include <memory>
 #include <model/Game.h>
-#include <model/State.h>
+#include <memory>
+#include <map>
 
 namespace controller {
 
 class Controller {
 public:
-	virtual ~Controller() = default;
+	virtual ~Controller();
+	const model::State& getState() const;
+	void setState(model::State&);
+	std::shared_ptr<model::Board> getBoard;
+	model::Card& getDeckCard();
 
-	model::State& getState() const {
-		return game->getState();
-	}
-	void setState(model::State state) const {
-		game->setState(state);
+	const std::map<std::string, std::shared_ptr<model::Deck>>& getDecks() const;
+	const std::map<std::string, std::shared_ptr<model::FoundationStack>>& getFoundations() const;
+	const std::map<std::string, std::shared_ptr<model::TableauStack>>& getTableaus() const;
 
-	}
+	virtual void accept(class ControllerVisitor*) = 0;
+
 protected:
-	explicit Controller(std::shared_ptr<model::Game> game) {
-		this->game = game;
-	}
-	std::shared_ptr<model::Game> game;
-
+	model::Game* game;
 };
 
 } /* namespace controller */

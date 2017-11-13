@@ -10,6 +10,7 @@ public:
 	static IOConsoleUtils* getInstance();
 	void write(std::string string);
 	void writeln(std::string string);
+	int readInt(int max);
 private:
 	IOConsoleUtils(){}
 	IOConsoleUtils(IOConsoleUtils const&){};

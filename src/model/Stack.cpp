@@ -1,11 +1,5 @@
-#include "Stack.h"
-#include "Card.h"
+#include <model/Stack.h>
 
-namespace model {
-class Stack;
-class CardList;
-class Card;
-}
 namespace model {
 
 Stack::Stack() :

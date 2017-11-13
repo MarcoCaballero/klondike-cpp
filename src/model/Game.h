@@ -26,6 +26,8 @@ public:
 
 	void showNewDeckCard();
 
+	Card& getDeckCard();
+
 	State& getState();
 
 	void setState(State state);

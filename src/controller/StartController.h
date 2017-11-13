@@ -1,23 +1,16 @@
 #ifndef SRC_CONTROLLER_STARTCONTROLLER_H_
 #define SRC_CONTROLLER_STARTCONTROLLER_H_
 
-#include <memory>
-#include <controller/OperationController.h>
-#include <controller/OperationControllerVisitor.h>
+#include <controller/Controller.h>
+#include <controller/ControllerVisitor.h>
 
 namespace controller {
 
-class StartController: OperationController, std::enable_shared_from_this<
-		StartController> {
+class StartController: public Controller {
 public:
-	StartController(std::shared_ptr<model::Game> game) :
-			OperationController(game) {
-	}
-	virtual ~StartController() {
-	}
-	virtual void accept(std::shared_ptr<OperationControllerVisitor> visitor) {
-		visitor->visit(shared_from_this());
-	}
+	StartController(model::Game* game);
+	virtual ~StartController();
+	/*virtual*/ void accept(ControllerVisitor*);
 };
 
 } /* namespace controller */
