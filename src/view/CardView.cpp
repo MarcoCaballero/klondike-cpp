@@ -2,15 +2,16 @@
 
 namespace view {
 
-CardView::CardView(model::Card& card) {
-	this->card = card;
-	utils = utils::IOConsoleUtils::getInstance();
+CardView::CardView(model::Card& card): card(&card){
+	this->card = &card;
 }
 
-CardView::~CardView() {
-	// TODO Auto-generated destructor stub
-}
+CardView::CardView(const CardView& cardview): card(cardview.card){}
+
+CardView::~CardView() {}
+
 void CardView::write() {
-	utils->writeln("[" + std::to_string(card.getValue()) + ":" + std::to_string(card.getSuit()) + "]");
+	utils::IOConsoleUtils* utils = utils::IOConsoleUtils::getInstance();
+	utils->write("[" + std::to_string(card->getValue()) + ":" + std::to_string(card->getSuit()) + "]");
 }
 } /* namespace view */

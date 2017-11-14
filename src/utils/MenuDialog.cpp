@@ -1,27 +1,20 @@
-/*
- * MenuDialog.cpp
- *
- *  Created on: Nov 13, 2017
- *      Author: ezcabma
- */
-
 #include <utils/MenuDialog.h>
 
 namespace utils {
 
-MenuDialog::MenuDialog() {
-	utils = utils::IOConsoleUtils::getInstance();
-}
+MenuDialog::MenuDialog() {}
 
 MenuDialog::~MenuDialog() {
 }
 
 int MenuDialog::read() {
 	displayMenu();
+	utils::IOConsoleUtils* utils = utils::IOConsoleUtils::getInstance();
 	return utils->readInt(6);
 }
 
 void MenuDialog::displayMenu() {
+	utils::IOConsoleUtils* utils = utils::IOConsoleUtils::getInstance();
 	utils->writeln("Main Menu");
 	utils->writeln("1 - Show new card");
 	utils->writeln("2 - Move from deck");

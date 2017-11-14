@@ -1,16 +1,18 @@
 #include <assert.h>
 #include <model/Board.h>
-
+#include <iostream>
 namespace model {
 
 Board::Board(CardList& cardlist) {
 	decks[DECK] = std::make_shared<Deck>(cardlist);
 	decks[WASTE] = std::make_shared<Deck>();
-	for (int i = 0; i < FOUNDATIONS_SIZE; ++i) {
-		foundations["f" + i] = std::make_shared<FoundationStack>();
+	for (int i = 1; i <= FOUNDATIONS_SIZE; ++i) {
+		std::string str = "f" + std::to_string(i);
+		foundations[str] = std::make_shared<FoundationStack>();
 	}
-	for (int i = 0; i < TABLEAUS_SIZE; ++i) {
-		tableaus["t" + i] = std::make_shared<TableauStack>();
+	for (int i = 1; i <= TABLEAUS_SIZE; ++i) {
+		std::string str = "t" + std::to_string(i);
+		tableaus[str] = std::make_shared<TableauStack>();
 	}
 }
 
@@ -19,9 +21,10 @@ Board::~Board() {
 
 void Board::initBoard() {
 	decks[DECK]->shuffle();
-	for (int i = 0; i < TABLEAUS_SIZE; ++i) {
-		for (int j = 0; j < i; j++) {
-			tableaus["t" + i]->push(getDeckCard());
+	for (int i = 1; i <= TABLEAUS_SIZE; ++i) {
+		for (int j = 1; j <= i; j++) {
+			std::string str = "t" + std::to_string(i);
+			tableaus[str]->initPush(getDeckCard());
 			decks[DECK]->pop();
 		}
 	}
@@ -95,6 +98,8 @@ bool Board::isTableauFullOfInvisible(std::string target) {
 }
 
 void Board::showNewTableauCard(std::string target) {
+	assert(isTableauKey(target));
+	assert(!tableaus[target]->isEmpty());
 	tableaus[target]->switchONvisibility();
 }
 
@@ -153,6 +158,11 @@ void Board::restoreFoundation() {
 			foundation->pop();
 		} while (!foundation->isEmpty());
 	}
+}
+
+
+const int Board::getDeckSize() {
+	return decks[DECK]->size();
 }
 
 const std::map<std::string, std::shared_ptr<Deck>>& Board::getDecks() const {

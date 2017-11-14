@@ -1,9 +1,12 @@
 #include <iostream>
 #include <Klondike.h>
 
+using namespace controller;
+using namespace view;
+
 Klondike::Klondike() {
-	logic = new controller::Logic();
-	view = new view::KlondikeView();
+	logic = new Logic();
+	view = new KlondikeView();
 }
 
 Klondike::~Klondike() {
@@ -22,6 +25,7 @@ void Klondike::play() {
 int main(int argc, char **argv) {
 
 	Klondike().play();
+
 
 	return EXIT_SUCCESS;
 }

@@ -26,7 +26,13 @@ public:
 
 	void showNewDeckCard();
 
+	void showNewTableauCard(std::string target);
+
 	Card& getDeckCard();
+
+	bool isDeckEmpty();
+
+	const int getDeckSize();
 
 	State& getState();
 

@@ -12,7 +12,6 @@ public:
 
 	int read();
 private:
-	utils::IOConsoleUtils* utils;
 	void displayMenu();
 };
 

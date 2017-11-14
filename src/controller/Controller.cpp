@@ -10,12 +10,16 @@ const model::State& Controller::getState() const {
 	return game->getState();
 }
 
-void Controller::setState(model::State& state){
+void Controller::setState(model::State state) {
 	game->setState(state);
 }
 
-std::shared_ptr<model::Board> Controller::getBoard() {
+std::shared_ptr<model::Board> Controller::getGameBoard() {
 	return game->getBoard();
+}
+
+const bool Controller::isDeckEmpty() {
+	return game->isDeckEmpty();
 }
 
 const std::map<std::string, std::shared_ptr<model::Deck>>& Controller::getDecks() const {
@@ -31,6 +35,15 @@ const std::map<std::string, std::shared_ptr<model::TableauStack>>& Controller::g
 }
 model::Card& Controller::getDeckCard() {
 	return game->getDeckCard();
+}
+
+
+const int Controller::getDeckSize() {
+	return game->getDeckSize();
+}
+
+const bool Controller::existWinner() {
+	return game->isFinished();
 }
 
 }

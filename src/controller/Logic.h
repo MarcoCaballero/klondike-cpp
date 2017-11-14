@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <model/Game.h>
-#include <controller/Controller.h>
+#include <controller/GameController.h>
 #include <controller/StartController.h>
 
 using namespace model;
@@ -18,6 +18,7 @@ public:
 private:
 	Game* game;
 	StartController* startController;
+	GameController* gameController;
 
 };
 

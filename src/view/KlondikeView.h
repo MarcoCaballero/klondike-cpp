@@ -3,6 +3,8 @@
 
 #include <controller/ControllerVisitor.h>
 #include <controller/Controller.h>
+#include <controller/StartController.h>
+#include <controller/GameController.h>
 
 using namespace controller;
 
@@ -12,8 +14,9 @@ class KlondikeView: public ControllerVisitor {
 public:
 	KlondikeView();
 	virtual ~KlondikeView();
-	/*virtual*/ void visit(StartController*);
-	void interact(Controller*);
+	void interact(Controller* controller);
+	/*virtual*/ void visit(StartController* startController);
+	/*virtual*/ void visit(GameController* gameController);
 };
 
 } /* namespace controller */

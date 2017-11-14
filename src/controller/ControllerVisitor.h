@@ -7,6 +7,7 @@ class ControllerVisitor {
 public:
 	virtual ~ControllerVisitor();
 	virtual void visit(class StartController*) = 0;
+	virtual void visit(class GameController*) = 0;
 };
 
 } /* namespace controller */

@@ -4,6 +4,7 @@ namespace model {
 
 Game::Game() {
 	state = State::INITIAL;
+	initGame();
 }
 
 Game::~Game() {
@@ -64,4 +65,17 @@ Card& Game::getDeckCard() {
 	return board->getDeckCard();
 }
 
-} /* namespace model */
+bool Game::isDeckEmpty() {
+	return board->isDeckEmpty();
+}
+
+const int Game::getDeckSize() {
+	return board->getDeckSize();
+}
+
+void Game::showNewTableauCard(std::string target) {
+	board->showNewTableauCard(target);
+}
+
+}
+/* namespace model */

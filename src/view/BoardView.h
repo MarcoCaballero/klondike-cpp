@@ -4,17 +4,20 @@
 #include <controller/Controller.h>
 #include <utils/IOConsoleUtils.h>
 
+
+using namespace controller;
+
 namespace view {
 
 class BoardView {
 public:
-	BoardView(controller::Controller*);
+	BoardView(Controller *controller);
+	BoardView(const BoardView& boardView);
 	virtual ~BoardView();
 	void write();
 
 private:
 	controller::Controller* controller;
-	utils::IOConsoleUtils* utils;
 };
 
 } /* namespace view */

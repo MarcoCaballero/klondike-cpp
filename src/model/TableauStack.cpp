@@ -13,7 +13,6 @@ TableauStack::~TableauStack() {
 }
 
 bool TableauStack::isAllowedPush(Card card) {
-
 	return (checkColor(card.getColor()) && checkValue(card.getValue()));
 }
 

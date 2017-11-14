@@ -11,9 +11,12 @@ class Controller {
 public:
 	virtual ~Controller();
 	const model::State& getState() const;
-	void setState(model::State&);
-	std::shared_ptr<model::Board> getBoard;
+	void setState(model::State);
+	std::shared_ptr<model::Board> getGameBoard();
 	model::Card& getDeckCard();
+	const bool isDeckEmpty();
+	const int getDeckSize();
+	const bool existWinner();
 
 	const std::map<std::string, std::shared_ptr<model::Deck>>& getDecks() const;
 	const std::map<std::string, std::shared_ptr<model::FoundationStack>>& getFoundations() const;

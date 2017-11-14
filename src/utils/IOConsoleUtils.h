@@ -10,12 +10,15 @@ public:
 	static IOConsoleUtils* getInstance();
 	void write(std::string string);
 	void writeln(std::string string);
+	void write(const std::string array[]);
 	int readInt(int max);
+	std::string readString(const std::string allowedStrings[]);
 private:
+	static IOConsoleUtils* utils;
 	IOConsoleUtils(){}
 	IOConsoleUtils(IOConsoleUtils const&){};
 	IOConsoleUtils& operator=(IOConsoleUtils const&);
-	static IOConsoleUtils* utils;
+	bool containsString(std::string target,const std::string array[]);
 };
 
 } /* namespace utils */

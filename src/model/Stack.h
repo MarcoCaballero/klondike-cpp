@@ -27,6 +27,8 @@ public:
 
 	void push(const Card& card);
 
+	void initPush(const Card& card);
+
 	virtual bool isAllowedPush(Card card) = 0;
 
 protected:

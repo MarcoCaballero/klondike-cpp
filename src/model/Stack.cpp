@@ -43,4 +43,8 @@ void Stack::push(const Card & card) {
 	}
 }
 
+void Stack::initPush(const Card & card) {
+	cards.push(card);
+}
+
 } // namespace model

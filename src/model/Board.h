@@ -42,6 +42,10 @@ public:
 
 	void clear();
 
+	const int getDeckSize();
+
+	void showNewTableauCard(std::string target);
+
 	const std::map<std::string, std::shared_ptr<Deck>>& getDecks() const;
 
 	const std::map<std::string, std::shared_ptr<FoundationStack>>& getFoundations() const;
@@ -59,7 +63,6 @@ private:
 	const std::string WASTE = "d2";
 
 	bool isTableauFullOfInvisible(std::string target);
-	void showNewTableauCard(std::string target);
 	bool isTableauKey(std::string target);
 	bool isFoundationKey(std::string target);
 	bool isDeckKey(std::string target);

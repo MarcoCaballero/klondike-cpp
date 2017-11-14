@@ -8,13 +8,13 @@ namespace view {
 
 class CardView {
 public:
+	CardView(const CardView&);
 	CardView(model::Card& card);
 	virtual ~CardView();
 	void write();
 
 private:
-	model::Card card;
-	utils::IOConsoleUtils* utils;
+	model::Card* card;
 };
 
 } /* namespace view */

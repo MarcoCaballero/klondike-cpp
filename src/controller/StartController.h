@@ -10,7 +10,7 @@ class StartController: public Controller {
 public:
 	StartController(model::Game* game);
 	virtual ~StartController();
-	/*virtual*/ void accept(ControllerVisitor*);
+	/*virtual*/ void accept(ControllerVisitor* visitor);
 };
 
 } /* namespace controller */
