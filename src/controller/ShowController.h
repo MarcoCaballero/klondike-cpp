@@ -7,11 +7,8 @@ namespace controller {
 
 class ShowController: public GameController {
 public:
-	ShowController(model::Game* game);
 	virtual ~ShowController();
-	void showNewDeckCard();
-	void showNewTableauCard(std::string target);
-
+	virtual void show() = 0;
 };
 
 } /* namespace controller */

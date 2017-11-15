@@ -2,6 +2,7 @@
 #define SRC_UTILS_IOCONSOLEUTILS_H_
 #include <memory>
 #include <iostream>
+#include <list>
 
 namespace utils {
 
@@ -10,15 +11,15 @@ public:
 	static IOConsoleUtils* getInstance();
 	void write(std::string string);
 	void writeln(std::string string);
-	void write(const std::string array[]);
+	void write(std::list<std::string> allowed);
 	int readInt(int max);
-	std::string readString(const std::string allowedStrings[]);
+	std::string readString(std::list<std::string> allowed);
 private:
 	static IOConsoleUtils* utils;
 	IOConsoleUtils(){}
 	IOConsoleUtils(IOConsoleUtils const&){};
 	IOConsoleUtils& operator=(IOConsoleUtils const&);
-	bool containsString(std::string target,const std::string array[]);
+	bool containsString(std::string target,std::list<std::string> allowed);
 };
 
 } /* namespace utils */

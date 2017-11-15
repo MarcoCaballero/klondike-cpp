@@ -13,17 +13,9 @@ public:
 
 	virtual ~GameController();
 
-	Action getAction() const;
-
-	void setAction(Action action);
-
-	GameController* getController();
+	model::Game* getGame();
 
 	/*virtual*/ void accept(ControllerVisitor* visitor);
-
-
-protected:
-	Action action;
 };
 
 } /* namespace controller */

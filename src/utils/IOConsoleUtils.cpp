@@ -17,10 +17,10 @@ void IOConsoleUtils::writeln(std::string string) {
 	std::cout << string << std::endl;
 }
 
-
-void IOConsoleUtils::write(const std::string array[]) {
-	for (std::string string: array) {
-		write(string);
+void IOConsoleUtils::write(std::list<std::string> allowed) {
+	for (std::list<std::string>::const_iterator i = allowed.begin();
+			i != allowed.end(); ++i) {
+		write(i->c_str());
 	}
 }
 
@@ -36,24 +36,25 @@ int IOConsoleUtils::readInt(int max) {
 	return selected;
 }
 
-std::string IOConsoleUtils::readString(const std::string allowedStrings[]) {
+std::string IOConsoleUtils::readString(std::list<std::string> allowed) {
 	std::string selected;
 	do {
 		write("Enter a string between :");
-		write(allowedStrings);
+		write (allowedStrings);
 		std::cin >> selected;
-		if (containsString(selected, allowedStrings)) {
+		if (containsString(selected, allowed)) {
 			writeln("Error the selected cell does not exist");
 		}
-	} while (containsString(selected, allowedStrings));
+	} while (containsString(selected, allowed));
 	return selected;
 }
 
-
-bool IOConsoleUtils::containsString(std::string target,const std::string array[]) {
+bool IOConsoleUtils::containsString(std::string target,
+		std::list<std::string> allowed) {
 	bool status = true;
-	for (std::string string: array) {
-		if(string != target)
+	for (std::list<std::string>::const_iterator i = allowed.begin();
+			i != allowed.end(); ++i) {
+		if (i->c_str() != target)
 			status = false;
 	}
 	return status;

@@ -7,18 +7,18 @@ namespace controller {
 Logic::Logic() {
 	game = new Game();
 	startController = new StartController(game);
-	gameController = new GameController(game);
+	gameControllerSelector = new GameControllerSelector(game);
 }
 
 Logic::~Logic() {
 }
 
-Controller* Logic::getController() {
+GameController* Logic::getController() {
 	switch (game->getState()) {
 	case State::INITIAL:
 		return startController;
 	case State::IN_GAME:
-		return gameController->getController();
+		return gameControllerSelector->getShowController();
 	default:
 		return NULL;
 		break;

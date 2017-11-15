@@ -5,8 +5,14 @@ namespace model {
 
 class CardChecker {
 public:
-	CardChecker();
-	virtual ~CardChecker();
+	static CardChecker* getInstance();
+	bool isKing();
+	bool isAce();
+private:
+	static CardChecker* cardChecker;
+	CardChecker() {}
+	CardChecker(CardChecker const&){};
+	CardChecker& operator=(CardChecker const&);
 };
 
 } /* namespace model */

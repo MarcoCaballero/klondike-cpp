@@ -12,14 +12,19 @@ MenuView::MenuView(controller::GameController* gameController) {
 MenuView::~MenuView() {
 }
 
+
+const std::list<std::string> MenuView::getDeckPosition() {
+	std::list<std::string> allowedDecks;
+	allowedDecks.push_back("d1");
+	return allowedDecks;
+}
+
 void MenuView::write() {
 	utils::IOConsoleUtils* utils = utils::IOConsoleUtils::getInstance();
-
-
 	int option = utils::MenuDialog().read();
 	switch (option) {
 	case (1):
-		MoveMenuView(moveController).print(DECK, ALLOWED_DECK);
+		MoveMenuView(gameController).print(getDeckPosition(), getDeckPosition());
 		break;
 	case (2):
 		break;
@@ -28,7 +33,7 @@ void MenuView::write() {
 	case (4):
 		break;
 	case (5):
-		MoveMenuView(moveController).print(TABLEAU, ALLOWED_TABLEAU);
+		MoveMenuView(gameController).print(getDeckPosition(), getDeckPosition());
 		break;
 	case (6):
 		break;

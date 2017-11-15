@@ -1,9 +1,9 @@
 #ifndef SRC_CONTROLLER_LOGIC_H_
 #define SRC_CONTROLLER_LOGIC_H_
 
+#include <controller/GameControllerSelector.h>
 #include <memory>
 #include <model/Game.h>
-#include <controller/GameController.h>
 #include <controller/StartController.h>
 
 using namespace model;
@@ -14,11 +14,11 @@ class Logic {
 public:
 	Logic();
 	virtual ~Logic();
-	Controller* getController();
+	GameController* getController();
 private:
 	Game* game;
 	StartController* startController;
-	GameController* gameController;
+	GameControllerSelector* gameControllerSelector;
 
 };
 

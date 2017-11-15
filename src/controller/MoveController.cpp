@@ -1,10 +1,3 @@
-/*
- * MoveController.cpp
- *
- *  Created on: Nov 14, 2017
- *      Author: ezcabma
- */
-
 #include <controller/MoveController.h>
 
 namespace controller {

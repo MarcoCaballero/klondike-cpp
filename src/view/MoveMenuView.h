@@ -9,7 +9,7 @@ class MoveMenuView {
 public:
 	MoveMenuView(controller::MoveController* moveController);
 	virtual ~MoveMenuView();
-	void print(const std::string allowedFrom[],const std::string allowedTo[]);
+	void print(std::list<std::string> allowedFrom, std::list<std::string> allowedTo);
 private:
 	controller::MoveController* moveController;
 

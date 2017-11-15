@@ -2,6 +2,7 @@
 #define SRC_UTILS_MOVEDIALOG_H_
 
 #include <string>
+#include <list>
 #include <utils/IOConsoleUtils.h>
 
 namespace utils {
@@ -12,7 +13,7 @@ public:
 
 	virtual ~MoveDialog();
 
-	std::string read(const std::string allowed[]);
+	std::string read(std::list<std::string> allowed);
 private:
 	std::string title;
 	std::string read();

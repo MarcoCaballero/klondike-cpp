@@ -3,7 +3,7 @@
 
 namespace controller {
 enum class Action {
-	SHOW, MOVE, EXIT, NONE,
+	SHOW_DECK, SHOW_TABLEAU, MOVE, EXIT, NONE,
 };
 
 } /* namespace controller */
