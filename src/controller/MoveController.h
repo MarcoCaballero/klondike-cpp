@@ -11,6 +11,8 @@ public:
 
 	void move(std::string origin, std::string target);
 	void move(std::string origin, std::string target, int length);
+
+	void control();
 };
 
 } /* namespace controller */

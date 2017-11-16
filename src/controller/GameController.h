@@ -15,7 +15,9 @@ public:
 
 	model::Game* getGame();
 
-	/*virtual*/ void accept(ControllerVisitor* visitor);
+	void accept(ControllerVisitor* visitor);
+
+	virtual void control() = 0;
 };
 
 } /* namespace controller */

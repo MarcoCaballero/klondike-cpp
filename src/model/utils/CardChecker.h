@@ -6,8 +6,8 @@ namespace model {
 class CardChecker {
 public:
 	static CardChecker* getInstance();
-	bool isKing();
-	bool isAce();
+	bool isKing(int value);
+	bool isAce(int value);
 private:
 	static CardChecker* cardChecker;
 	CardChecker() {}

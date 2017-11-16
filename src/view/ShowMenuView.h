@@ -7,6 +7,7 @@ class ShowMenuView {
 public:
 	ShowMenuView();
 	virtual ~ShowMenuView();
+	void print();
 };
 
 } /* namespace view */

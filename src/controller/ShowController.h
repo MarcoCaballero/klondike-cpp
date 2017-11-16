@@ -8,7 +8,7 @@ namespace controller {
 class ShowController: public GameController {
 public:
 	virtual ~ShowController();
-	virtual void show() = 0;
+	virtual void control() = 0;
 };
 
 } /* namespace controller */

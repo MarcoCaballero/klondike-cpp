@@ -11,7 +11,7 @@ public:
 	ShowDeckCardController(model::Game* game);
 	virtual ~ShowDeckCardController();
 
-	void show();
+	void control();
 
 };
 

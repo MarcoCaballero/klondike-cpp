@@ -13,8 +13,11 @@ namespace controller {
 class Logic {
 public:
 	Logic();
+
 	virtual ~Logic();
+
 	GameController* getController();
+
 private:
 	Game* game;
 	StartController* startController;

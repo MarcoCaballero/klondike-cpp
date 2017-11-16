@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <model/utils/CardChecker.h>
 #include <model/TableauStack.h>
 
 namespace model {
@@ -52,16 +53,18 @@ bool TableauStack::checkColor(int color) {
 }
 
 bool TableauStack::checkValue(int value) {
+	CardChecker* cardchecker = CardChecker::getInstance();
 	if (isEmpty()) {
-		return getCard().getValue() == 13; //SMELL CODE DE LA POLLA, singleton
+		return cardchecker->isKing(getCard().getValue());
 	} else {
 		return getCard().isPreviousValue(value);
 	}
 }
 
 bool TableauStack::checkList(CardList cardlist) {
+	CardChecker* cardchecker = CardChecker::getInstance();
 	Card lastCard = cardlist.getCards().back();
-	return isAllowedPush(lastCard) && lastCard.getValue() == 13; //SMELL CODE DE LA POLLA, singleton
+	return isAllowedPush(lastCard) && cardchecker->isKing(lastCard.getValue());
 }
 
 }

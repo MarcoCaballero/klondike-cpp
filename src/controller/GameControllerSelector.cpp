@@ -33,9 +33,9 @@ MoveController* GameControllerSelector::getMoveController() {
 }
 
 GameController* GameControllerSelector::getController() {
-	if (Action == Action::SHOW_DECK | Action == Action::SHOW_TABLEAU) {
+	if (action == Action::SHOW_DECK | Action == Action::SHOW_TABLEAU) {
 		return getShowController();
-	} else if (Action == Action::MOVE ) {
+	} else if (action == Action::MOVE ) {
 		return getMoveController();
 	}
 	return NULL;

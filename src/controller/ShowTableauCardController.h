@@ -9,7 +9,7 @@ public:
 	ShowTableauCardController(model::Game* game, std::string target);
 	virtual ~ShowTableauCardController();
 
-	void show();
+	void control();
 
 private:
 	std::string target;

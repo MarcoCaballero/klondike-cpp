@@ -2,6 +2,7 @@
 #include <utils/IOConsoleUtils.h>
 #include <utils/MenuDialog.h>
 #include <view/MoveMenuView.h>
+#include <view/ShowMenuView.h>
 
 namespace view {
 
@@ -11,7 +12,6 @@ MenuView::MenuView(controller::GameController* gameController) {
 
 MenuView::~MenuView() {
 }
-
 
 const std::list<std::string> MenuView::getDeckPosition() {
 	std::list<std::string> allowedDecks;
@@ -24,16 +24,19 @@ void MenuView::write() {
 	int option = utils::MenuDialog().read();
 	switch (option) {
 	case (1):
-		MoveMenuView(gameController).print(getDeckPosition(), getDeckPosition());
+		MoveMenuView(gameController).print(getDeckPosition(),
+				getDeckPosition());
 		break;
 	case (2):
-		break;
+		ShowMenuView(gameController).print();
+	break;
 	case (3):
 		break;
 	case (4):
 		break;
 	case (5):
-		MoveMenuView(gameController).print(getDeckPosition(), getDeckPosition());
+		MoveMenuView(gameController).print(getDeckPosition(),
+				getDeckPosition());
 		break;
 	case (6):
 		break;
